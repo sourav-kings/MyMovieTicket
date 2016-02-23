@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-animate.min.js"></script>
+    <script src="../Content/Plugins/ui-bootstrap-tpls-1.1.2.min.js"></script>
+    <script src="../Scripts/Module/module.js"></script>
+    <script src="../Scripts/Controllers/Index-Config.js"></script>
+    <script src="../Scripts/Route/route.js"></script>
+    <script src="../Scripts/Controllers/Movies-Config.js"></script>
+    <script src="../Scripts/Controllers/Theaters-Config.js"></script>
+    <script src="../Scripts/Service/SharedProperty-Service.js"></script>
+</head>
+<body ng-app="myMovieTicketApp" ng-controller="myMovieTicketController">
+    <div class="row">
+        <div class="col-md-12  col-md-offset-4">
+            <h1>{{welcomeMessage}}</h1>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3  col-md-offset-4">
+            <a class="btn btn-default" style="background-color:palevioletred" href="#/movies">See Movies</a>
+        </div>
+        <div class="col-md-2 ">
+            <a class="btn btn-default" style="background-color:cornflowerblue" href="#/theaters">See Theaters</a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div ng-view></div>
+</body>
+</html>

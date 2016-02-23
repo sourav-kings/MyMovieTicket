@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-controller="moviesController">
+    <!--{{welcomeMessageMovie}}-->
+    <br/>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Movie
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies" ng-show="(!showBookingForm) || (showBookingForm && movie.Selected)">
+                    <td>
+                        <h1><span style="color:olivedrab; background-color: lemonchiffon; BOX-SHADOW: -1px 0px 6px 1px gray;" class="label ">{{movie.MovieName}}</span></h1>
+                    <td>
+                        <img style="height:240px; width:180px" ng-src="{{movie.ImgUrl}}" />
+                    </td>
+                    <td>
+                        <input class="btn btn-default btn-info" ng-show="!showBookingForm" value="Book Ticket" ng-click="bookTicket(movie.MovieId)" />
+                        <div>
+                            <form ng-show="(showSeatSelectionForm) || showBookingForm">
+                                <fieldset class="form-group">
+                                    <label for="showTime">Theater</label>
+                                    <select class="form-control" id="showTheater" ng-model="selectedMovie.Theater"
+                                            ng-options="AT.TheaterId as AT.TheaterName for AT in availableTheaters | orderBy:['TheaterId']">
+                                        <option disabled="disabled" value="" selected="selected"></option>
+                                    </select>
+                                    <small class="text-muted">Please select the theater.</small>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="showDay">Day</label>
+                                    <input type="date" class="form-control" id="showDay" ng-model="selectedMovie.ShowDay">
+                                    <small class="text-muted">Please select on which day you want to see the movie.</small>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="showTime">Time</label>
+                                    <select class="form-control" id="showTime" ng-model="selectedMovie.ShowTime"
+                                            ng-options="ST.ShowTimeId as ST.ShowTimeHour for ST in showTimings | orderBy:['ShowTimeId']">
+                                        <option disabled="disabled" value="" selected="selected"></option>
+                                    </select>
+                                    <small class="text-muted">Please select the show time.</small>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="showQuantity">Quantity</label>
+                                    <input type="number" class="form-control" id="showQuantity" ng-model="selectedMovie.Quantity">
+                                    <small class="text-muted">Please select the number of tickets.</small>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input class="btn btn-default btn-warning" type="button" ng-click="proceedSeatSelection()" ng-hide="showSeatSelectionForm" value="Select Seats" />
+                                    <input class="btn btn-default btn-success" type="button" ng-click="confirmBooking()" ng-show="showSeatSelectionForm" value="Confirm Booking" />
+                                    <input class="btn btn-default btn-danger" type="button" ng-click="reset(movie.MovieId)" value="Cancel" />
+                                </fieldset>
+                            </form>
+
+                            <form ng-show="showSeatSelectionForm">
+                                <div class="form-group">
+                                    <img class="form-control" ng-repeat="seat in totalSeats" style="margin:2%; display:inline-block;padding:0;text-align:center; width:24px;height:24px;"
+                                         ng-src="{{seat.ImgUrl}}" ng-click="seatChoiceSelection(seat.SeatId)" />
+                                </div>
+                            </form>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
