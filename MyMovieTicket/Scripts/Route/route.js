@@ -3,11 +3,11 @@
     function ($routeProvider) {
         $routeProvider.
             when('/movies', {
-                templateUrl: 'Movies.html',
+                templateUrl: '../Views/Movies.html',
                 controller: 'moviesController'
             }).
             when('/theaters', {
-                templateUrl: 'Theaters.html',
+                templateUrl: '../Views/Theaters.html',
                 controller: 'theatersController'
             }).
             otherwise({

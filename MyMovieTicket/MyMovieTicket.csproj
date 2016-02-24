@@ -101,7 +101,7 @@
     <Content Include="Scripts\Controllers\Theaters-Config.js" />
     <Content Include="Scripts\Service\SharedProperty-Service.js" />
     <Content Include="Views\Home.html" />
-    <Content Include="Views\Index.html" />
+    <Content Include="Index.html" />
     <Content Include="Views\Movies.html" />
     <Content Include="Views\Seats.html" />
     <Content Include="Views\Theaters.html" />
